@@ -1,0 +1,42 @@
+  body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    clear: both;
+    background-color: #e9ebee;
+    min-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden !important;
+  }
+
+  header{
+    background-color: #4267b2;
+  }
+.main{
+  max-height: 530px;
+}
+  header h1{
+    color: #ffffff;
+  }
+  .block-btn{
+    padding-top: 5px;
+  }
+  .login-box{
+    background-color:#ffffff;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    border-radius: 5px;
+    margin-top: 100px;
+    margin-bottom: auto;
+  }
+  footer{
+    background-color: #ffffff;
+    height: 70px;
+    position: fixed;
+    bottom: 0 !important;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 15px;
+  }
