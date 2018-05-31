@@ -26,7 +26,7 @@ function mostrar_cdc(cdc_seleccionado){
 
 function set_values_cdc(arreglo){
   var rows="";
-  $('#info').html('<div class="table-responsive"><table class="table"><thead><tr><th>Total spam</th><th>Spam ganados</th><th>Spam gastados</th><th>Fecha</th><th>Imagen</th></tr></thead><tbody id="SpamCdc"></tbody></table></div>');
+  $('#info').html('<div class="table-responsive"><table class="table" id="myTable"><thead><tr><th>Total spam</th><th>Spam ganados</th><th>Spam gastados</th><th>Fecha</th><th>Imagen</th></tr></thead><tbody id="SpamCdc"></tbody></table></div>');
   var cnt = 0;
   for (var total_spam in arreglo){
 
@@ -34,6 +34,24 @@ function set_values_cdc(arreglo){
     cnt ++;
   }
   $('#SpamCdc').html(rows);
+  $('#myTable').DataTable({
+    ordering: false,
+    pageLength: 5,
+    oLanguage: {
+        			"sLengthMenu": "Mostrando _MENU_ registros por p&aacute;gina",
+        			"sZeroRecords": "No se encontraron registros - !lo sentimos!",
+        			"sInfo": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+        			"sInfoEmpty": "Mostrando 0 a 0 de 0 registros",
+                    "sSearch":"Buscar:",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sPrevious": "<<",
+                        "sNext":     ">>",
+                        "sLast":     "\xdaltimo"
+                    },
+        			"sInfoFiltered": "(Filtrado de un total de _MAX_ registros)"
+        		}
+  });
 }
 
 function insertar_spam(tipo) {

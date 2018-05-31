@@ -1,4 +1,6 @@
 <?php
+    ini_set('display_errors', 1);
+    session_start();
     require("../../data.php");
     require('../../clases/Spam.class.php');
     require('../../clases/pagina.class.php');
@@ -8,10 +10,10 @@
     $objSpam = new Spam;
     $objCdcs = new Cdcs;
 
-    ini_set('display_errors', 1);
-    session_start();
     if(isset($_SESSION['cdc_username']) && $_SESSION['tipo'] =='admin'){
+
       $id_facebook = $_SESSION['id_facebook'];
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -21,10 +23,19 @@
     <meta http-equiv='cache-control' content='no-cache'>
     <meta http-equiv='expires' content='-1'>
     <meta http-equiv='pragma' content='no-cache'>
+    <!-- DataTable -->
+    <link rel="stylesheet" href="../../css/jquery.dataTables.min.css">
+    <!-- DataTable -->
     <link rel="stylesheet" href="../../css/font-awesome.min.css">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/pages.css">
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <!-- DataTable -->
+    <script src="../../js/jquery.dataTables.min.js"></script>
+    <!-- DataTable -->
     <title>Chistes Colombianos</title>
   </head>
   <body>
@@ -42,11 +53,12 @@
                   <div class="form-group">
                     <label for="sel1">Elija Cdc:</label>
                     <select class="form-control" id="cdcElegido" onchange="mostrar_cdc(this.value);">
-                      <option disabled selected value> -- Seleccione un Cdc -- </option>
+                    <!--<select class="form-control" id="cdcElegido" onchange="verDatosCdc(this.value);">-->
+                      <option disabled selected value=""> -- Seleccione un Cdc -- </option>
                       <?php
                         $Cdcs_normales = $objCdcs->get_cdcs($host, $user, $password, $database);
                           foreach($Cdcs_normales as $valores){
-                            echo '<option value="'.$valores['id_facebook'].'">'.$valores['nombre_cdc'].'</option>';
+                              echo '<option value="'.$valores['id_facebook'].'">'.$valores['nombre_cdc'].'</option>';
                           }
                        ?>
                     </select>
@@ -131,13 +143,13 @@
         </div>
 	</section>
     <?php //echo $objPagina->getFooter(); ?>
-    <script src="../../js/jquery-3.2.1.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/funciones_cdc.js"></script>
+
   </body>
 </html>
 <?php }else{
   echo "No tiene permisos para esta pagina";
-  header('location:../../index.php');
+  header("Location: http://www.chistescol.com");
+
 }
 ?>

@@ -10,7 +10,7 @@
     function ver_spam($id_facebook, $host, $user, $password, $database){
       $this->connect_db($host, $user, $password, $database);
       $dec = mysqli_set_charset($this->conexion, 'utf8');
-      $query = "SELECT * FROM registro_spam WHERE id_facebook='$id_facebook' ORDER BY fecha DESC LIMIT 15";
+      $query = "SELECT * FROM registro_spam WHERE id_facebook='$id_facebook' ORDER BY fecha DESC";
       $consulta = mysqli_query($this->conexion, $query);
       $tmp = array();
       while ($valores = mysqli_fetch_array($consulta)) {
@@ -40,7 +40,14 @@
     function getEstadisticas($host, $user, $password, $database){
         $this->connect_db($host, $user, $password, $database);
         $dec = mysqli_set_charset($this->conexion, 'utf8');
-        $query = "select count(*) as numero, id_facebook, nombre from registro_spam where numero_ganados=1 group by id_facebook order by numero desc;";
+        $query = "select count(*) as numero, SP.id_facebook, SP.nombre from
+                        registro_spam SP
+                        inner join cdcs U
+                        on SP.id_facebook = U.id_facebook
+                        where SP.numero_ganados=1
+                        and U.activo = 1
+                        group by SP.id_facebook
+                        order by numero desc;";
         $consulta = mysqli_query($this->conexion, $query);
         $tmp = array();
         while ($valores = mysqli_fetch_array($consulta)) {
@@ -52,7 +59,7 @@
     function getUltimaImagenName($host, $user, $password, $database){
         $this->connect_db($host, $user, $password, $database);
         $dec = mysqli_set_charset($this->conexion, 'utf8');
-        $query = "select urlimage from registro_spam order by fecha desc limit 1;";
+        $query = "select urlimage from registro_spam where urlimage is not null order by fecha desc limit 1;";
         $consulta = mysqli_query($this->conexion, $query);
         $tmp = mysqli_fetch_array($consulta);
         return $tmp;
@@ -64,5 +71,25 @@
         $consulta = mysqli_query($this->conexion, $query);
         mysqli_close($this->conexion);
         return $consulta;
+    }
+
+    function insert_spam_new_cdc($host, $user, $password, $database, $nombre, $fecha, $id_facebook){
+        $this->connect_db($host, $user, $password, $database);
+        $query ="INSERT INTO registro_spam(nombre,
+                                           fecha,
+                                           numero_ganados,
+                                           id_facebook,
+                                           numero_gastados,
+                                           total_spam)
+			                         VALUES(
+                                            '$nombre',
+                                            '$fecha',
+                                            0,
+                                            $id_facebook,
+                                            0,
+                                            0)";
+        $consulta = mysqli_query($this->conexion, $query);
+        mysqli_close($this->conexion);
+        return true;
     }
   }

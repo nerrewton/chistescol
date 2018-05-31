@@ -22,7 +22,8 @@ use Facebook\HttpClients\FacebookHttpable;
 //echo "appid: ".$AppId_fb." appSecret:  ".$AppSecret_fb."url: ".$UrlHostRedirect;
 FacebookSession::setDefaultApplication( $AppId_fb, $AppSecret_fb );
 // login helper with redirect_uri
-    $helper = new FacebookRedirectLoginHelper($UrlHostRedirect.'/fbconfig.php' );
+    //$helper = new FacebookRedirectLoginHelper($UrlHostRedirect.'/fbconfig.php' );
+    $helper = new FacebookRedirectLoginHelper('http://chistescol.com' );
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {

@@ -1,0 +1,14 @@
+[14-Oct-2017 19:13:04 America/Bogota] PHP Fatal error:  Unsupported operand types in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 14
+[14-Oct-2017 19:15:31 America/Bogota] PHP Fatal error:  Unsupported operand types in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 15
+[14-Oct-2017 19:17:02 America/Bogota] PHP Warning:  getimagesize(): Filename cannot be empty in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 29
+[14-Oct-2017 19:17:02 America/Bogota] PHP Warning:  imagejpeg() expects parameter 1 to be resource, null given in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 40
+[14-Oct-2017 19:26:12 America/Bogota] PHP Warning:  getimagesize(image (1).png): failed to open stream: No such file or directory in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 29
+[14-Oct-2017 19:26:12 America/Bogota] PHP Warning:  imagejpeg() expects parameter 1 to be resource, null given in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 40
+[14-Oct-2017 19:31:15 America/Bogota] PHP Warning:  getimagesize() expects parameter 1 to be string, array given in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 32
+[14-Oct-2017 19:31:15 America/Bogota] PHP Warning:  imagejpeg() expects parameter 1 to be resource, null given in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 43
+[14-Oct-2017 19:31:59 America/Bogota] PHP Warning:  getimagesize() expects parameter 1 to be string, array given in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 32
+[14-Oct-2017 19:31:59 America/Bogota] PHP Warning:  imagejpeg() expects parameter 1 to be resource, null given in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 43
+[14-Oct-2017 19:38:47 America/Bogota] PHP Warning:  getimagesize(): Filename cannot be empty in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 29
+[14-Oct-2017 19:44:47 America/Bogota] PHP Warning:  getimagesize(): Filename cannot be empty in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 29
+[14-Oct-2017 19:44:47 America/Bogota] PHP Warning:  imagejpeg() expects parameter 1 to be resource, null given in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 41
+[14-Oct-2017 19:58:19 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php:25) in /home/lvjgejob/public_html/chistescol/pages/cdc/gestionCdc/subirMeme.php on line 44

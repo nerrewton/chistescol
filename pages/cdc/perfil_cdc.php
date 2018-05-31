@@ -25,13 +25,13 @@
       <div class="container">
         <div class="row panel_content">
           <div class="row col-sm-3">
-            <div class="col-sm-12">
+            <!-- <div class="col-sm-12">
                 <div class="panel">
                     <div class="panel-body">
                         <a href="creadorMemes.php" class="btn btn-primary" type="button" tooltip="Prueba la nueva funcionalidad"><strong>Ir al creador de Memes </strong><i class="fa fa-star" aria-hidden="true"></i></a>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-sm-12">
               <div class="panel panel-success">
                 <div class="panel-heading">
@@ -174,10 +174,25 @@
     <script src="../../js/jquery-3.2.1.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/funciones_cdc.js"></script>
+    <script src="../../js/jquery.toaster.js"></script>
+    <script>
+        <?php
+        if(isset($valores[0]['total_spam'])){
+            if(intval($valores[0]['total_spam']) > 0){
+                echo "$.toaster({ priority : 'success', title : 'Felicidades', message : 'Tienes ".$valores[0]['total_spam']." spam para gastar !'});";
+            }elseif(intval($valores[0]['total_spam']) == 0){
+                echo "$.toaster({ priority : 'warning', title : 'Informaci&oacute;n', message : 'No tienes spam para gastar !'});";
+            }else{
+                echo "$.toaster({ priority : 'danger', title : 'Alerta', message : 'No tienes spam para gastar, desbes ".abs(intval($valores[0]['total_spam']))." spam !'});";
+            }
+        }
+
+         ?>
+    </script>
   </body>
 </html>
 <?php }else{
    echo "No tiene permisos para esta pagina";
-   header('location:../../index.php');
+   header('Location:../../index.php');
  }
  ?>

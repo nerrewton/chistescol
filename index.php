@@ -34,7 +34,7 @@
               </div>
             <?php } }?>
             <form action="login.php" method="post">
-              <!--<div class="form-group">
+              <div class="form-group">
                 <label for="username" class="col-sm-12">User name:</label>
                 <div class="col-sm-12">
                   <input type="text" class="form-control" id="username" name="username" placeholder="User name">
@@ -45,23 +45,13 @@
                 <div class="col-sm-12">
                   <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
-              </div> -->
+              </div>
               <div class="col-sm-12 block-btn text-center">
-                <h1>Ingresa haciendo click en el bot&oacute;n</h1>
-                <!--<button type="submit" class="btn btn-success">Login</button> -->
-                <button id="LogFB" type="button" class="btn btn-primary">Login width Facebook <i class="fa fa-facebook-square"></i></button>
+                <!--<h1>Ingresa haciendo click en el bot&oacute;n</h1>-->
+                <button type="submit" class="btn btn-success">Login</button>
+                <!--<button id="LogFB" type="button" class="btn btn-primary">Login width Facebook <i class="fa fa-facebook-square"></i></button>-->
               </div>
             </form>
-          </div>
-          <div class="col-sm-4">
-            <div class="alert alert-info alert-dismissable fade in" style="width:100%; float:right; margin-top:15px;">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-              <strong>Info!</strong> Ahora puedes ingresar con el boton de Facebook !, Env&iacute;ale la solicitud al Admin.
-            </div>
-            <!--<div class="alert alert-danger alert-dismissable fade in" style="width:100%; float:right; margin-top:15px;">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-              <strong>Nota!</strong> Pronto se eliminar&aacute; la opci&oacute;n de ingresar con user y password a la palataforma, s&oacute;lo se permitir&aacute; el ingreso con el bot&oacute;n de Facebook!.
-            </div> -->
           </div>
         </div>
       </div>
@@ -69,8 +59,12 @@
     <?php echo $objPagina->getFooter(); ?>
 	<script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.toaster.js"></script>
     <script src="js/funciones_cdc.js"></script>
     <script>
+        $(document).ready(function(){
+            $.toaster({ priority : 'info', title : 'Informaci&oacute;n', message : 'Para ingresar debes solicitar tu usuario y contraseña al Admin.'});
+        });
       <?php
           if(isset($_SESSION['FBID'])){
             echo '

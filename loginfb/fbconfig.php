@@ -1,6 +1,8 @@
 <?php
 //incude data-fb
 include_once 'data-fb.php';
+ini_set("session.cookie_lifetime","7200");
+ini_set("session.gc_maxlifetime","7200");
 session_start();
 // added in v4.0.0
 require_once 'autoload.php';
