@@ -1,7 +1,7 @@
 <?php
   $host = "localhost";
   $database = "lvjgejob_chistescol";
-  $user = "lvjgejob_rene";
+  $user = "root";
   $password = "colombia65";
 
  
